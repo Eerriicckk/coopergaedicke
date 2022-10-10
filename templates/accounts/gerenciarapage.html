@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/gerenciarassociados_page_style.css' %}" />
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <link rel="icon" href="images/favicon.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooper Gaedicke</title>
+</head>
+{% block content %}
+<form method="post" action="{% url 'updateassociado' %}">
+    {% csrf_token %}
+    <table>
+    <tr>
+        {{ data.nomeAssociado }}
+        {{ data.quotas }}
+        {{ data.nomeRespoAssociado }}
+        {{ data.dt_nasct }}
+        {{ data.cidadeNatal }}
+        {{ data.estadoNatal }}
+        {{ data.telefone }}
+        {{ data.email }}
+        {{ data.rg }}
+        {{ data.cpf }}
+         
+        {{ data.isAssociado }}
+        {{ data.cargo }}
+        {{ data.rua }}
+        {{ data.bairro }}
+        {{ data.cidadeAtual }}
+        {{ data.cep }}
+        {{ form }}        
+
+    </tr>
+    </table>
+    <input type="submit" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+    <div class="downcenter">    
+        <div class="buttons">
+            <a href="{% url 'verassociados' %}"><button type="button" class="changepagebuttons">Voltar</button></a>
+        </div>
+    </div>
+    <p class="bluetext">Desenvolvido por:</p>
+    <img src="{% static 'images/CETEC-Logo-Horizontal.png' %}" alt="logo cetec" class="ceteclogo">
+{% endblock content %}
+</html>

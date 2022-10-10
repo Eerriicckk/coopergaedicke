@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(0,165,0);
+    background-color: rgb(0, 165, 0);
     overflow:auto;
 }
 hr{
@@ -15,6 +15,34 @@ h3{
     color: black;
     font-family: Arial;
 }
+
+table{
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+td{
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+.orderable{
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+a:link{
+    color: black;
+    text-decoration: none;
+}
+a:visited{
+    color:black;
+    text-decoration: none;
+}
+a{
+    font-size: 14px;
+}
+
 .header{
   text-align: center;
   padding: 20px;
@@ -41,23 +69,9 @@ h3{
     align-items: center;
 }
 .inputUser{
-    width: 174px;
-    height: 20px;
-    margin-left: 180px;
     border-radius:5px;
     box-shadow: 0px 8px 5px 2px rgb(0, 130, 0);
-    border: 3px solid black;
-}
-.inputUserBool{
-    width: 14px;
-    height: 14px;
-    margin-left: 255px;
-    border-radius:5px;
-    box-shadow: 0px 8px 5px 2px rgb(0, 130, 0);
-    border: 3px solid black;
-}
-.inputBool{
-    margin: 0px 0px 0px 0px;
+    border: 2px solid black;
 }
 .changepagebuttons{
     border-radius:5px;

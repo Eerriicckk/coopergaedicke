@@ -3,38 +3,43 @@
 
 
 {% block content %}
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-    {% if next %}
-        {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
-        {% else %}
-            <p>Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
-    <form method="post" action="{% url 'principal' %}">
-    {% csrf_token %}
+   
+    <!--<form method="post" action="{% url 'principal' %}">-->
     <div class="logo">
-        <img src="{% static "images/cooper.png" %}" alt="coopergaedicke logo" class="cooperLogo">
+        <img src="{% static 'images/cooper.png' %}" alt="coopergaedicke logo" class="cooperLogo">
     </div>
     <br><br>
     <div class="centeritems" >
-        <div class="loginbox">
+  
+    <div class="loginbox">
+      <form method="post" action="{% url 'teste' %}" class="teste">
+        {% csrf_token %}
+          {{ form.user.label_tag}}
+          {{ form.user}}
+          {{ form.password.label_tag}}
+          {{ form.password }}
+        <br>
+        <br>
+        <input type="submit" value="login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+        <br>  
+      </form>
+    </div>
+    <!--<p><a href="{% url 'login' %}">Lost password?</a></p>
             <p></p>
             Usuário
-            <input type="text" name="user" placeholder="Usuário" class="userbox">
+            <input type="text" name="user" placeholder="Usuário" >
             <br><br>
             Senha
-            <input type="password" name="password" placeholder="Senha" class="passwordbox">
+            <input type="password" name="password" placeholder="Senha" >
             <p></p>
-        </div>
-        <div>
+        </div>-->
+        <!--<div>
             <p></p>
             <a href="{% url 'principal' %}"><button type="submit" class="checkbutton">Entrar</button></a>
-        </div>
+        </div> -->
     </div>
     <p class="bluetext">Desenvolvido por:</p>
-    <img src="{% static "images/CETEC-Logo-Horizontal.png" %}" alt="logo cetec" class="ceteclogo">
+    <img src="{% static 'images/CETEC-Logo-Horizontal.png' %}" alt="logo cetec" class="ceteclogo">
+    
 {% endblock content %}

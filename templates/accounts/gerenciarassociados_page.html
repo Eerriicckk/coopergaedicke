@@ -1,20 +1,26 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="{% static 'css/gerenciarassociados_page_style.css' %}" />
-    <link rel="icon" href="images/favicon.png">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cooper Gaedicke</title>
-</head>
+
 {% block content %}
-    <div class="downcenter">    
-        <div class="buttons">
-            <a href="{% url 'principal' %}"><button type="button" class="changepagebuttons">Voltar</button></a>
-            <a href=""><button type="submit" class="changepagebuttons">Salvar</button></a>
-        </div>
+    <div class="logo">
+        <img src="{% static 'images/cooper.png' %}" alt="coopergaedicke logo" class="cooperLogo">
     </div>
+    <br><br>
+    <div class="centeritems">
+    <div class="loginbox">
+        <form method="post" action="{% url 'checkcpf' %}">
+            {% csrf_token %}
+            <table>
+            <tr>
+                <td>{{ form.cpf }}</td>
+            </tr>
+            </table>
+            <div class="downcenter"><input type="submit" value="login" class="changepagebuttons"/></div>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+        <a href="{% url 'verassociados' %}"><button type="button" class="changepagebuttons">Voltar</button></a>
+    </div>
+    </div>
+    <p class="bluetext">Desenvolvido por:</p>
+    <img src="{% static 'images/CETEC-Logo-Horizontal.png' %}" alt="logo cetec" class="ceteclogo">
 {% endblock content %}
-</html>
